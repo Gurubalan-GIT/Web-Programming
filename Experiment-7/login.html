@@ -1,0 +1,43 @@
+<!--
+Created Date: Monday October 14th 2019
+Author: Gurubalan Harikrishnan
+Email-ID: gurubalan.work@gmail.com
+-----
+Copyright (c) 2019 Gurubalan Harikrishnan
+-->
+<html>
+<head>
+    <title>User Login</title>
+</head>
+<body>
+<form method="post" action="Login_Check.php">
+	<H1>User Login</h1>
+	User Name:<input type="text" name="uname" value=<?php echo Cookie_val(1) ?> > <br>
+	Password:<input type="password" name="pwd" value=<?php echo Cookie_val(2) ?> > <br>
+	<input type="checkbox" name="remuser">Remember Password<br>
+	<input type="submit" value="Login">
+</form>
+</body>
+	<?php
+		function Cookie_val($ch){
+		if ($ch==1)
+		{	
+			if (isset($_COOKIE['UName']))
+			{
+				return $_COOKIE['UName'];
+			}
+			else 
+				return;
+		}
+		else
+		{
+			if (isset($_COOKIE['Pwd']))
+			{
+				return $_COOKIE['Pwd'];
+			}
+			else 
+				return;
+		}
+		}
+	?>
+</html>
